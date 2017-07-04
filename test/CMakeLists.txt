@@ -7,7 +7,7 @@ SET(TEST_SRC
 	testCart.cpp)
 
 SET(UNIT_UNDER_TEST_SRC
-	../cart.cpp)
+	../cart.cpp ../CartItem.cpp ../CartItem.h ../DataStore.h ../DataResult.cpp ../DataResult.h)
 
 SET(TEST_NAME ${PROJECT_NAME}-test)
 ADD_EXECUTABLE(${TEST_NAME}

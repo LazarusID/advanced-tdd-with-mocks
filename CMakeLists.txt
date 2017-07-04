@@ -5,7 +5,7 @@ add_subdirectory(googletest)
 add_subdirectory(test)
 
 set(APP_SOURCE
-	cart.cpp cart.h)
+	cart.cpp cart.h CartItem.cpp CartItem.h DataStore.h DataResult.cpp DataResult.h)
 
 
 add_executable(${PROJECT_NAME}
