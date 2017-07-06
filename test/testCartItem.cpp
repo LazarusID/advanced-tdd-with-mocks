@@ -12,18 +12,16 @@ using namespace ::testing;
 
 class CartItemTest : public testing::Test {
 public:
-    MockDataResult result;
     CartItem item;
+
+    const char *ITEM_NAME = "Widget";
 };
 
-TEST_F(CartItemTest, instream_byDefault_copiesFieldsFromDataResult)
+TEST_F(CartItemTest, getLineTotal_withQuantityOne_returnsItemPrice)
 {
-    result.setFields(3, "name", "quantity", "price");
-    result.addNext(3, "Widget", "2", "3.12");
+    item.setName(ITEM_NAME);
+    item.setPrice(3.14);
+    item.setQuantity(1);
 
-    result >> item;
-
-    ASSERT_EQ(item.getName(), "Widget");
-    ASSERT_EQ(item.getPrice(), 3.12);
-    ASSERT_EQ(item.getQuantity(), 2);
+    ASSERT_EQ(item.getItemTotal(), 3.14);
 }
