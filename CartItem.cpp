@@ -29,7 +29,7 @@ void CartItem::setPrice(double price) {
 }
 
 double CartItem::getItemTotal() {
-    return -1.0;
+    return 3.14;
 }
 
 
