@@ -27,3 +27,13 @@ double CartItem::getPrice() const {
 void CartItem::setPrice(double price) {
     CartItem::price = price;
 }
+
+double CartItem::getItemTotal() {
+    return -1.0;
+}
+
+
+DataResult& operator>>(DataResult& in, CartItem& item) {
+
+    return in;
+}

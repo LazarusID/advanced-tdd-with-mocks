@@ -1,13 +1,16 @@
 include_directories(SYSTEM
 	${CMAKE_SOURCE_DIR}/googletest/googlemock/include)
 
+include_directories(..)
+
 enable_testing()
 
 SET(TEST_SRC
-	testCart.cpp)
+	testCart.cpp
+	testCartItem.cpp)
 
 SET(UNIT_UNDER_TEST_SRC
-	../cart.cpp ../CartItem.cpp ../CartItem.h ../DataStore.h ../DataResult.cpp ../DataResult.h)
+	../cart.cpp ../CartItem.cpp ../CartItem.h ../DataStore.h ../DataResult.h )
 
 SET(TEST_NAME ${PROJECT_NAME}-test)
 ADD_EXECUTABLE(${TEST_NAME}

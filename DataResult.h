@@ -7,6 +7,7 @@
 
 #include <vector>
 #include <string>
+#include <memory>
 
 using namespace std;
 
@@ -14,8 +15,8 @@ class DataResult {
 
 public:
 
-    virtual vector<string> getFields() = 0;
-    virtual vector<string> getNext() = 0;
+    virtual unique_ptr< vector<string>> getFields();
+    virtual unique_ptr< vector<string>> getNext();
     virtual bool eof() = 0;
 
 };

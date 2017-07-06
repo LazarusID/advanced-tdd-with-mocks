@@ -6,7 +6,7 @@
 #define CART_CARTITEM_H
 
 #include <string>
-#include <iostream>
+#include "DataResult.h"
 
 using namespace std;
 
@@ -28,8 +28,10 @@ public:
 
     void setPrice(double price);
 
+    double getItemTotal();
+
 };
 
-istream& operator>>(istream& in, CartItem& item);
+DataResult& operator>>(DataResult& in, CartItem& item);
 
 #endif //CART_CARTITEM_H
