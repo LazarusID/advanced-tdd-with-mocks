@@ -25,3 +25,13 @@ TEST_F(CartItemTest, getLineTotal_withQuantityOne_returnsItemPrice)
 
     ASSERT_EQ(item.getItemTotal(), 3.14);
 }
+
+TEST_F(CartItemTest, getLineTotal_withQuantityOneAndDifferentPrice_returnsItemPrice)
+{
+    item.setName(ITEM_NAME);
+    item.setPrice(2.71);
+    item.setQuantity(1);
+
+    ASSERT_EQ(item.getItemTotal(), 2.71);
+}
+
