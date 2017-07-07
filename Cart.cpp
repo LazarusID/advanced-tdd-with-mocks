@@ -1,9 +1,9 @@
 #include "Cart.h"
 
 int Cart::itemCount() {
-    return 0;
+    return items.size();
 }
 
 void Cart::addItem(unique_ptr<CartItem> item) {
-    // Do nothing
+    items.push_back(move(item));
 }

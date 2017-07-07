@@ -11,6 +11,9 @@ public:
     int itemCount();
     void addItem(unique_ptr<CartItem> item);
 
+private:
+    vector<unique_ptr<CartItem>> items;
+
 };
 
 #endif
