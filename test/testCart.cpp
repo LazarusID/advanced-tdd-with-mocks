@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 
-#include "cart.h"
+#include "Cart.h"
 
 using namespace ::testing;
 
