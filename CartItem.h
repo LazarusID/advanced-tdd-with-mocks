@@ -16,6 +16,10 @@ private:
     int quantity;
     double price;
 public:
+
+    CartItem();
+    CartItem(string n, int q, double p);
+
     const string &getName() const;
 
     void setName(const string &name);

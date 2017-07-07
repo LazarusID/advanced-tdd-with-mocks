@@ -15,6 +15,13 @@ public:
     const char *ITEM_NAME = "Widget";
 };
 
+TEST_F(CartItemTest, cartItem_byDefault_setsEmptyCartItem)
+{
+    ASSERT_EQ(item.getName(), "");
+    ASSERT_EQ(item.getQuantity(), 0);
+    ASSERT_EQ(item.getPrice(), 0.0);
+}
+
 TEST_F(CartItemTest, getLineTotal_withQuantityOne_returnsItemPrice)
 {
     item.setName(ITEM_NAME);

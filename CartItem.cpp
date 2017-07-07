@@ -4,6 +4,13 @@
 
 #include "CartItem.h"
 
+CartItem::CartItem() : name(""), quantity(0), price(0.0)
+{}
+
+CartItem::CartItem(string n, int q, double p) :
+    name(n), quantity(q), price(p)
+{}
+
 const string &CartItem::getName() const {
     return name;
 }
