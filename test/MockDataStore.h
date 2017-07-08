@@ -29,6 +29,7 @@ private:
     map<string, int> int_params;
     map<string, double> double_params;
 
+    string sql;
     bool execute_called;
 };
 
