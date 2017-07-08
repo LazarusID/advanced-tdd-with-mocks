@@ -20,7 +20,7 @@ public:
     virtual void setParam(string param, int value) = 0;
     virtual void setParam(string param, double value) = 0;
 
-    virtual DataResult execute() = 0;
+    virtual unique_ptr<DataResult> execute() = 0;
 
 };
 

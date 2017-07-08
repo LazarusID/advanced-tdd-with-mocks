@@ -22,7 +22,7 @@ public:
 
     void setParam(string param, double value) override;
 
-    DataResult execute() override;
+    unique_ptr<DataResult> execute() override;
 
     string getSql();
     string getStringParam(string param);

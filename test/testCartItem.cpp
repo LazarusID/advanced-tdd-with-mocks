@@ -6,6 +6,7 @@
 
 #include "CartItem.h"
 #include "MockDataResult.h"
+#include "MockDataStore.h"
 
 using namespace ::testing;
 
@@ -15,7 +16,7 @@ public:
 
     CartItem item;
     MockDataResult result;
-
+    MockDataStore store;
 };
 
 TEST_F(CartItemTest, cartItem_byDefault_setsEmptyCartItem)
@@ -74,5 +75,19 @@ TEST_F(CartItemTest, inputStream_missingQuantity_defaultsToOne)
     ASSERT_EQ(item.getName(), ITEM_NAME);
     ASSERT_EQ(item.getPrice(), 2.71);
     ASSERT_EQ(item.getQuantity(), 1);
+}
+
+TEST_F(CartItemTest, outputStream_byDefault_setsQueryParametersAndExecutes) {
+
+    item.setName(ITEM_NAME);
+    item.setPrice(3.14);
+    item.setQuantity(5);
+
+    store << item;
+
+    ASSERT_EQ(store.getStringParam(":name"), ITEM_NAME);
+    ASSERT_EQ(store.getIntParam(":quantity"), 5);
+    ASSERT_EQ(store.getDoubleParam(":price"), 3.14);
+    ASSERT_TRUE(store.executeWasCalled());
 }
 

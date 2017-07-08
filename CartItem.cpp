@@ -68,5 +68,9 @@ DataResult &operator>>(DataResult &in, CartItem &item) {
 }
 
 DataStore& operator<<(DataStore& out, CartItem& item) {
+    out.setParam(":name", item.getName());
+    out.setParam(":price", item.getPrice());
+    out.setParam(":quantity", item.getQuantity());
+    out.execute();
     return out;
 }

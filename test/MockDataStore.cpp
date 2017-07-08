@@ -3,6 +3,7 @@
 //
 
 #include "MockDataStore.h"
+#include "MockDataResult.h"
 
 MockDataStore::MockDataStore() {
     execute_called = false;
@@ -27,9 +28,9 @@ void MockDataStore::setParam(string param, double value) {
     double_params[param] = value;
 }
 
-DataResult MockDataStore::execute() {
+unique_ptr<DataResult> MockDataStore::execute() {
     execute_called = true;
-    return nullptr;
+    return make_unique<MockDataResult>();
 }
 
 string MockDataStore::getSql() {
