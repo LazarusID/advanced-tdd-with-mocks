@@ -10,7 +10,7 @@ SET(TEST_SRC
 	testCartItem.cpp
         MockDataResult.h
         MockDataResult.cpp
-		)
+        MockDataStore.cpp MockDataStore.h)
 
 SET(UNIT_UNDER_TEST_SRC
         ../Cart.cpp ../CartItem.cpp ../CartItem.h ../DataStore.h ../DataResult.h )
