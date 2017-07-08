@@ -66,3 +66,7 @@ DataResult &operator>>(DataResult &in, CartItem &item) {
 
     return in;
 }
+
+DataStore& operator<<(DataStore& out, CartItem& item) {
+    return out;
+}

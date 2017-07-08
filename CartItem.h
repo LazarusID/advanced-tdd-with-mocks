@@ -7,6 +7,7 @@
 
 #include <string>
 #include "DataResult.h"
+#include "DataStore.h"
 
 using namespace std;
 
@@ -37,5 +38,6 @@ public:
 };
 
 DataResult& operator>>(DataResult& in, CartItem& item);
+DataStore& operator<<(DataStore& out, CartItem& item);
 
 #endif //CART_CARTITEM_H
