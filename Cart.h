@@ -9,10 +9,11 @@
 class Cart {
 public:
     int itemCount();
-    void addItem(unique_ptr<CartItem> item);
+    void addItem(shared_ptr<CartItem> item);
+    shared_ptr<CartItem> getItem(int i);
 
 private:
-    vector<unique_ptr<CartItem>> items;
+    vector<shared_ptr<CartItem>> items;
 
 };
 

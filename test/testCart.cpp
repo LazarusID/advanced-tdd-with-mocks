@@ -18,7 +18,18 @@ TEST_F(CartTest, itemCount_byDefault_returnsZero) {
 
 TEST_F(CartTest, itemCount_afterOneItemAdded_returnsOne) {
 
-    cart.addItem(make_unique<CartItem>(CartItem(ITEM_NAME, 1, 3.14)));
+    cart.addItem(make_shared<CartItem>(CartItem(ITEM_NAME, 1, 3.14)));
 
     ASSERT_EQ(cart.itemCount(), 1);
+}
+
+TEST_F(CartTest, getItem_afterOneItemAddedAndRequestingItem0_returnsAddedItem) {
+
+    cart.addItem(make_shared<CartItem>(CartItem(ITEM_NAME, 1, 3.14)));
+    auto actual = cart.getItem(0);
+
+    ASSERT_EQ(actual->getName(), ITEM_NAME);
+    ASSERT_EQ(actual->getPrice(), 3.14);
+    ASSERT_EQ(actual->getQuantity(), 1);
+
 }
