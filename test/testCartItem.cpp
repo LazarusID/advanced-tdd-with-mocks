@@ -63,3 +63,16 @@ TEST_F(CartItemTest, inputStream_givenAllFields_populatesCartItem)
     ASSERT_EQ(item.getPrice(), 3.14);
     ASSERT_EQ(item.getQuantity(), 1);
 }
+
+TEST_F(CartItemTest, inputStream_missingQuantity_defaultsToOne)
+{
+    result.setFields(2, "name", "price");
+    result.addNext(2, ITEM_NAME, "2.71");
+
+    result >> item;
+
+    ASSERT_EQ(item.getName(), ITEM_NAME);
+    ASSERT_EQ(item.getPrice(), 2.71);
+    ASSERT_EQ(item.getQuantity(), 1);
+}
+
