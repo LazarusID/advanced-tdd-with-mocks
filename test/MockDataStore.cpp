@@ -31,3 +31,23 @@ DataResult MockDataStore::execute() {
     execute_called = true;
     return nullptr;
 }
+
+string MockDataStore::getSql() {
+    return sql;
+}
+
+string MockDataStore::getStringParam(string param) {
+    return string_params.at(param);
+}
+
+int MockDataStore::getIntParam(string param) {
+    return int_params.at(param);
+}
+
+double MockDataStore::getDoubleParam(string param) {
+    return double_params.at(param);
+}
+
+bool MockDataStore::executeWasCalled() {
+    return execute_called;
+}

@@ -24,6 +24,13 @@ public:
 
     DataResult execute() override;
 
+    string getSql();
+    string getStringParam(string param);
+    int getIntParam(string param);
+    double getDoubleParam(string param);
+
+    bool executeWasCalled();
+
 private:
     map<string, string> string_params;
     map<string, int> int_params;
