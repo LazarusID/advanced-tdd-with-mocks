@@ -59,18 +59,8 @@ DataResult& operator>>(DataResult& in, CartItem& item) {
     auto row_ptr = in.getNext();
     auto row = *row_ptr;
     item.setName(row[name_idx]);
-
-    istringstream inprice(row[price_idx]);
-    istringstream inquantity(row[quantity_idx]);
-
-    double price;
-    int quantity;
-
-    inprice >> price;
-    inquantity >> quantity;
-
-    item.setPrice(price);
-    item.setQuantity(quantity);
+    item.setQuantity(stoi(row[quantity_idx]));
+    item.setPrice(stod(row[price_idx], nullptr));
 
     return in;
 }
