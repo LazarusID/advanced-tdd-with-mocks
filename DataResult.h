@@ -15,8 +15,8 @@ class DataResult {
 
 public:
 
-    virtual unique_ptr< vector<string>> getFields();
-    virtual unique_ptr< vector<string>> getNext();
+    virtual shared_ptr< vector<string>> getFields() = 0;
+    virtual shared_ptr< vector<string>> getNext() = 0;
     virtual bool eof() = 0;
 
 };

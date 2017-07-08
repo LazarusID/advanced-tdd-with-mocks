@@ -16,9 +16,9 @@ class DataStore {
 public:
 
     virtual void setQuery(string sql) = 0;
-    virtual void setParam(string param, string value);
-    virtual void setParam(string param, int value);
-    virtual void setParam(string param, double value);
+    virtual void setParam(string param, string value) = 0;
+    virtual void setParam(string param, int value) = 0;
+    virtual void setParam(string param, double value) = 0;
 
     virtual DataResult execute() = 0;
 

@@ -7,7 +7,10 @@ enable_testing()
 
 SET(TEST_SRC
 	testCart.cpp
-	testCartItem.cpp)
+	testCartItem.cpp
+        MockDataResult.h
+        MockDataResult.cpp
+		)
 
 SET(UNIT_UNDER_TEST_SRC
         ../Cart.cpp ../CartItem.cpp ../CartItem.h ../DataStore.h ../DataResult.h )
