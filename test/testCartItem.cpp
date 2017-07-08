@@ -5,14 +5,17 @@
 #include <gtest/gtest.h>
 
 #include "CartItem.h"
+#include "MockDataResult.h"
 
 using namespace ::testing;
 
 class CartItemTest : public testing::Test {
 public:
-    CartItem item;
-
     const char *ITEM_NAME = "Widget";
+
+    CartItem item;
+    MockDataResult result;
+
 };
 
 TEST_F(CartItemTest, cartItem_byDefault_setsEmptyCartItem)
@@ -47,4 +50,16 @@ TEST_F(CartItemTest, getLineTotal_withQuantityTwo_returnsTwiceItemPrice)
     item.setQuantity(2);
 
     ASSERT_EQ(item.getItemTotal(), 5.42);
+}
+
+TEST_F(CartItemTest, inputStream_givenAllFields_populatesCartItem)
+{
+    result.setFields(3, "name", "price", "quantity");
+    result.addNext(3, ITEM_NAME, "3.14", "1");
+
+    result >> item;
+
+    ASSERT_EQ(item.getName(), ITEM_NAME);
+    ASSERT_EQ(item.getPrice(), 3.14);
+    ASSERT_EQ(item.getQuantity(), 1);
 }
